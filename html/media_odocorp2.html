@@ -1,0 +1,1595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Odo Group — Photography & Videography</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Outfit:wght@200;300;400;500&display=swap');
+
+:root {
+  --black:   #080808;
+  --charcoal:#111111;
+  --graphite:#1c1c1c;
+  --iron:    #2a2a2a;
+  --silver:  #8a8a8a;
+  --ash:     #c4c4c4;
+  --cream:   #ede8e0;
+  --gold:    #c9a84c;
+  --gold-lt: #e4c97e;
+  --white:   #f8f6f2;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--black);
+  color: var(--cream);
+  font-family: 'Outfit', sans-serif;
+  font-weight: 300;
+  overflow-x: hidden;
+  cursor: crosshair;
+
+}
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  // Cursor dot
+  const dot = document.getElementById('cursorDot');
+  document.addEventListener('mousemove', e => {
+    dot.style.left = e.clientX + 'px';
+    dot.style.top  = e.clientY + 'px';
+  });
+
+/* ── CUSTOM CURSOR DOT ── 
+.cursor-dot {
+  width: 6px; height: 6px;
+  background: var(--gold);
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: transform 0.1s;
+}
+*/
+
+
+/* ── NAV ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0;
+  z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 28px 52px;
+  background: linear-gradient(to bottom, rgba(8,8,8,0.95) 0%, transparent 100%);
+}
+
+.nav-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.25rem;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  color: var(--white);
+}
+
+.nav-logo span { color: var(--gold); }
+
+.nav-links {
+  display: flex; gap: 36px; list-style: none;
+}
+
+.nav-links a {
+  font-size: 0.7rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ash);
+  text-decoration: none;
+  transition: color 0.25s;
+}
+
+.nav-links a:hover { color: var(--gold); }
+
+.nav-cta {
+  font-size: 0.68rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  border: 1px solid var(--gold);
+  padding: 10px 22px;
+  text-decoration: none;
+  transition: all 0.25s;
+}
+
+.nav-cta:hover { background: var(--gold); color: var(--black); }
+
+/* ── HERO ── */
+.hero {
+  height: 100vh;
+  position: relative;
+  display: flex; align-items: center; justify-content: center;
+  overflow: hidden;
+}
+
+/* Cinematic background using CSS gradient art */
+.hero-bg {
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 55% 70% at 75% 45%, #1a1410 0%, transparent 65%),
+    radial-gradient(ellipse 40% 50% at 25% 60%, #0e0c0a 0%, transparent 60%),
+    linear-gradient(135deg, #080808 0%, #12100e 40%, #1c1710 70%, #080808 100%);
+}
+
+/* Simulated light leak effect */
+.hero-bg::before {
+  content: '';
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 30% 60% at 85% 20%, rgba(201,168,76,0.06) 0%, transparent 70%),
+    radial-gradient(ellipse 20% 40% at 10% 80%, rgba(201,168,76,0.04) 0%, transparent 60%);
+}
+
+/* Film grain */
+.hero-bg::after {
+  content: '';
+  position: absolute; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)' opacity='0.06'/%3E%3C/svg%3E");
+  opacity: 0.5;
+}
+
+/* Anamorphic letterbox bars */
+.hero::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0;
+  height: 80px;
+  background: var(--black);
+  z-index: 2;
+}
+.hero::after {
+  content: '';
+  position: absolute; bottom: 0; left: 0; right: 0;
+  height: 80px;
+  background: var(--black);
+  z-index: 2;
+}
+
+.hero-content {
+  position: relative; z-index: 3;
+  text-align: center;
+  animation: heroIn 1.4s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes heroIn {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.hero-eyebrow {
+  font-size: 0.65rem;
+  letter-spacing: 0.45em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 24px;
+  animation: heroIn 1.4s 0.2s cubic-bezier(0.16,1,0.3,1) both;
+}
+
+.hero-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(3.5rem, 9vw, 8rem);
+  font-weight: 300;
+  line-height: 0.95;
+  letter-spacing: -0.01em;
+  color: var(--white);
+  margin-bottom: 6px;
+  animation: heroIn 1.4s 0.1s cubic-bezier(0.16,1,0.3,1) both;
+}
+
+.hero-name em {
+  font-style: italic;
+  color: var(--cream);
+}
+
+.hero-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1rem, 2.5vw, 1.6rem);
+  font-weight: 300;
+  font-style: italic;
+  color: var(--silver);
+  letter-spacing: 0.08em;
+  margin-bottom: 42px;
+  animation: heroIn 1.4s 0.3s cubic-bezier(0.16,1,0.3,1) both;
+}
+
+.hero-divider {
+  width: 1px; height: 60px;
+  background: linear-gradient(to bottom, transparent, var(--gold), transparent);
+  margin: 0 auto 28px;
+  animation: heroIn 1.4s 0.4s both;
+}
+
+.hero-scroll {
+  font-size: 0.6rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--silver);
+  animation: heroIn 1.4s 0.5s both;
+}
+
+/* ── SECTION BASE ── */
+section {
+  padding: 100px 52px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section-label {
+  font-size: 0.62rem;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 14px;
+  display: flex; align-items: center; gap: 16px;
+}
+
+.section-label::after {
+  content: '';
+  flex: 1; max-width: 60px;
+  height: 1px;
+  background: var(--gold);
+}
+
+.section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2rem, 4vw, 3.4rem);
+  font-weight: 300;
+  line-height: 1.15;
+  color: var(--white);
+  margin-bottom: 20px;
+}
+
+.section-title em { font-style: italic; color: var(--cream); }
+
+/* ── ABOUT SECTION ── */
+.about-wrap {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+/* Simulated portrait using CSS art */
+.about-portrait {
+  position: relative;
+  aspect-ratio: 3/4;
+  max-height: 520px;
+}
+
+.portrait-frame {
+  position: absolute; inset: 0;
+  background: linear-gradient(135deg, #1a1712 0%, #0e0c09 60%, #1c1914 100%);
+  border: 1px solid rgba(201,168,76,0.15);
+  overflow: hidden;
+}
+
+.portrait-frame::before {
+  content: '';
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 60% 80% at 50% 30%, rgba(201,168,76,0.08) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 60% at 30% 70%, rgba(255,255,255,0.03) 0%, transparent 60%);
+}
+
+/* Silhouette-style portrait using shapes */
+.portrait-silhouette {
+  position: absolute;
+  bottom: 0; left: 50%;
+  transform: translateX(-50%);
+  width: 65%;
+  height: 88%;
+  background: linear-gradient(to top, rgba(201,168,76,0.08) 0%, rgba(201,168,76,0.02) 40%, transparent 80%);
+  clip-path: polygon(30% 0%, 70% 0%, 85% 8%, 90% 25%, 88% 45%, 80% 60%, 75% 75%, 80% 100%, 20% 100%, 25% 75%, 20% 60%, 12% 45%, 10% 25%, 15% 8%);
+}
+
+.portrait-corner {
+  position: absolute;
+  width: 24px; height: 24px;
+  border-color: var(--gold);
+  border-style: solid;
+  opacity: 0.5;
+}
+.portrait-corner.tl { top: 14px; left: 14px; border-width: 1px 0 0 1px; }
+.portrait-corner.tr { top: 14px; right: 14px; border-width: 1px 1px 0 0; }
+.portrait-corner.bl { bottom: 14px; left: 14px; border-width: 0 0 1px 1px; }
+.portrait-corner.br { bottom: 14px; right: 14px; border-width: 0 1px 1px 0; }
+
+.portrait-label {
+  position: absolute;
+  bottom: 18px; left: 50%; transform: translateX(-50%);
+  font-size: 0.6rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgba(201,168,76,0.6);
+  white-space: nowrap;
+}
+
+.about-text-block p {
+  font-size: 0.95rem;
+  line-height: 1.9;
+  color: var(--ash);
+  margin-bottom: 20px;
+}
+
+.about-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 36px;
+  padding-top: 36px;
+  border-top: 1px solid var(--iron);
+}
+
+.stat-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.4rem;
+  font-weight: 300;
+  color: var(--gold);
+  line-height: 1;
+}
+
+.stat-label {
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--silver);
+  margin-top: 6px;
+}
+
+/* ── SERVICES ── */
+.services-full {
+  background: var(--charcoal);
+  padding: 100px 0;
+}
+
+.services-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 52px;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  margin-top: 52px;
+  border: 1px solid var(--iron);
+}
+
+.service-card {
+  padding: 44px 36px;
+  background: var(--charcoal);
+  border: 1px solid var(--iron);
+  position: relative;
+  overflow: hidden;
+  transition: background 0.35s;
+  cursor: default;
+}
+
+.service-card::before {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(to right, transparent, var(--gold), transparent);
+  transform: scaleX(0);
+  transition: transform 0.4s;
+}
+
+.service-card:hover { background: var(--graphite); }
+.service-card:hover::before { transform: scaleX(1); }
+
+.service-number {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 3.5rem;
+  font-weight: 300;
+  color: rgba(201,168,76,0.1);
+  line-height: 1;
+  margin-bottom: 18px;
+  transition: color 0.35s;
+}
+
+.service-card:hover .service-number { color: rgba(201,168,76,0.2); }
+
+.service-icon {
+  font-size: 1.6rem;
+  margin-bottom: 16px;
+}
+
+.service-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: var(--white);
+  margin-bottom: 12px;
+}
+
+.service-desc {
+  font-size: 0.8rem;
+  line-height: 1.8;
+  color: var(--silver);
+  margin-bottom: 20px;
+}
+
+.service-price {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem;
+  color: var(--gold-lt);
+  font-style: italic;
+}
+
+.service-features {
+  list-style: none;
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.service-features li {
+  font-size: 0.72rem;
+  color: var(--silver);
+  letter-spacing: 0.05em;
+  padding-left: 14px;
+  position: relative;
+}
+
+.service-features li::before {
+  content: '—';
+  position: absolute; left: 0;
+  color: var(--gold);
+  font-size: 0.6rem;
+}
+
+/* ── PORTFOLIO GRID ── */
+.portfolio-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 36px;
+}
+
+.portfolio-filters {
+  display: flex; gap: 8px;
+}
+
+.filter-btn {
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  padding: 8px 18px;
+  border: 1px solid var(--iron);
+  background: transparent;
+  color: var(--silver);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.filter-btn:hover, .filter-btn.active {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: auto;
+  gap: 8px;
+}
+
+/* Portfolio items as artistic placeholders */
+.pf-item {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.pf-item:nth-child(1) { grid-column: span 7; grid-row: span 2; }
+.pf-item:nth-child(2) { grid-column: span 5; }
+.pf-item:nth-child(3) { grid-column: span 5; }
+.pf-item:nth-child(4) { grid-column: span 4; }
+.pf-item:nth-child(5) { grid-column: span 4; }
+.pf-item:nth-child(6) { grid-column: span 4; }
+
+.pf-thumb {
+  width: 100%;
+  padding-top: 70%;
+  position: relative;
+  overflow: hidden;
+}
+
+.pf-item:nth-child(1) .pf-thumb { padding-top: 65%; }
+
+.pf-bg {
+  position: absolute; inset: 0;
+  transition: transform 0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.pf-item:hover .pf-bg { transform: scale(1.06); }
+
+/* Unique gradient "photos" for each item */
+.pf-item:nth-child(1) .pf-bg {
+  background: linear-gradient(135deg, #1a1208 0%, #2d1e12 30%, #1c1508 60%, #0e0c06 100%);
+}
+.pf-item:nth-child(1) .pf-bg::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 50% 60% at 60% 40%, rgba(201,168,76,0.12) 0%, transparent 70%),
+              radial-gradient(ellipse 30% 40% at 25% 70%, rgba(255,220,150,0.06) 0%, transparent 60%);
+}
+
+.pf-item:nth-child(2) .pf-bg {
+  background: linear-gradient(160deg, #0a0e14 0%, #111825 50%, #0a0e14 100%);
+}
+.pf-item:nth-child(2) .pf-bg::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 60% 80% at 40% 50%, rgba(80,120,180,0.08) 0%, transparent 70%);
+}
+
+.pf-item:nth-child(3) .pf-bg {
+  background: linear-gradient(120deg, #14100a 0%, #261e14 40%, #12100a 100%);
+}
+.pf-item:nth-child(3) .pf-bg::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 70% 50% at 50% 30%, rgba(255,200,100,0.07) 0%, transparent 60%);
+}
+
+.pf-item:nth-child(4) .pf-bg {
+  background: linear-gradient(160deg, #0c0c0c 0%, #181818 100%);
+}
+.pf-item:nth-child(4) .pf-bg::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 80% 60% at 30% 60%, rgba(201,168,76,0.07) 0%, transparent 60%);
+}
+
+.pf-item:nth-child(5) .pf-bg {
+  background: linear-gradient(100deg, #0e1210 0%, #141e18 60%, #0a0e0c 100%);
+}
+.pf-item:nth-child(5) .pf-bg::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 50% 70% at 60% 40%, rgba(100,180,120,0.06) 0%, transparent 60%);
+}
+
+.pf-item:nth-child(6) .pf-bg {
+  background: linear-gradient(140deg, #12100e 0%, #201a12 50%, #0e0c08 100%);
+}
+.pf-item:nth-child(6) .pf-bg::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 60% 50% at 40% 60%, rgba(201,140,60,0.09) 0%, transparent 70%);
+}
+
+.pf-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(8,8,8,0.85) 0%, transparent 60%);
+  opacity: 0;
+  transition: opacity 0.35s;
+  display: flex; align-items: flex-end;
+  padding: 20px;
+}
+
+.pf-item:hover .pf-overlay { opacity: 1; }
+
+.pf-caption-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem;
+  color: var(--white);
+  margin-bottom: 2px;
+}
+
+.pf-caption-cat {
+  font-size: 0.6rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+/* Portfolio image content indicators */
+.pf-center-icon {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: clamp(1.5rem, 4vw, 3rem);
+  opacity: 0.12;
+  pointer-events: none;
+}
+
+/* ── TESTIMONIALS ── */
+.testimonials-full {
+  background: linear-gradient(to bottom, var(--black) 0%, #0e0c09 50%, var(--black) 100%);
+  padding: 100px 0;
+}
+
+.testimonials-inner {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 52px;
+}
+
+.testimonials-track {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
+  margin-top: 52px;
+}
+
+.testimonial-card {
+  padding: 36px;
+  border: 1px solid var(--iron);
+  background: var(--charcoal);
+  position: relative;
+}
+
+.testimonial-card::before {
+  content: '"';
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 6rem;
+  color: rgba(201,168,76,0.08);
+  position: absolute;
+  top: 10px; left: 24px;
+  line-height: 1;
+}
+
+.testimonial-stars {
+  color: var(--gold);
+  font-size: 0.7rem;
+  letter-spacing: 2px;
+  margin-bottom: 16px;
+}
+
+.testimonial-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: var(--cream);
+  margin-bottom: 24px;
+}
+
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.author-avatar {
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  background: var(--graphite);
+  border: 1px solid var(--iron);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.9rem;
+  color: var(--silver);
+  flex-shrink: 0;
+}
+
+.author-name {
+  font-size: 0.82rem;
+  font-weight: 400;
+  color: var(--white);
+  letter-spacing: 0.05em;
+}
+
+.author-event {
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-top: 2px;
+}
+
+/* ── PROCESS ── */
+.process-track {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  margin-top: 52px;
+  position: relative;
+}
+
+.process-track::before {
+  content: '';
+  position: absolute;
+  top: 28px; left: 12.5%; right: 12.5%;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--iron), var(--iron), transparent);
+  z-index: 0;
+}
+
+.process-step {
+  text-align: center;
+  padding: 0 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.process-dot {
+  width: 56px; height: 56px;
+  border-radius: 50%;
+  border: 1px solid var(--gold);
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 20px;
+  background: var(--black);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.3rem;
+  font-weight: 300;
+  color: var(--gold);
+}
+
+.process-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem;
+  color: var(--white);
+  margin-bottom: 8px;
+}
+
+.process-desc {
+  font-size: 0.72rem;
+  line-height: 1.7;
+  color: var(--silver);
+}
+
+/* ── PACKAGES ── */
+.packages-full {
+  background: var(--charcoal);
+  padding: 100px 0;
+}
+
+.packages-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 52px;
+}
+
+.packages-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  margin-top: 52px;
+}
+
+.pkg-card {
+  padding: 44px 36px;
+  background: var(--black);
+  border: 1px solid var(--iron);
+  position: relative;
+  transition: border-color 0.3s;
+}
+
+.pkg-card.featured {
+  background: var(--graphite);
+  border-color: var(--gold);
+}
+
+.pkg-badge {
+  position: absolute;
+  top: -1px; left: 50%;
+  transform: translateX(-50%);
+  background: var(--gold);
+  color: var(--black);
+  font-size: 0.58rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  padding: 5px 16px;
+  white-space: nowrap;
+  font-weight: 500;
+}
+
+.pkg-tier {
+  font-size: 0.62rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 10px;
+}
+
+.pkg-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.9rem;
+  font-weight: 300;
+  color: var(--white);
+  margin-bottom: 6px;
+}
+
+.pkg-price {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.8rem;
+  font-weight: 300;
+  color: var(--gold-lt);
+  line-height: 1;
+  margin: 20px 0;
+}
+
+.pkg-price span {
+  font-size: 1rem;
+  color: var(--silver);
+  font-family: 'Outfit', sans-serif;
+}
+
+.pkg-divider {
+  height: 1px;
+  background: var(--iron);
+  margin: 24px 0;
+}
+
+.pkg-features {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 32px;
+}
+
+.pkg-features li {
+  font-size: 0.78rem;
+  color: var(--ash);
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  line-height: 1.5;
+}
+
+.pkg-features li::before {
+  content: '✓';
+  color: var(--gold);
+  font-size: 0.7rem;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.pkg-btn {
+  display: block;
+  text-align: center;
+  padding: 14px;
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  font-size: 0.65rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: all 0.25s;
+  cursor: pointer;
+  background: transparent;
+  width: 100%;
+  font-family: 'Outfit', sans-serif;
+}
+
+.pkg-btn:hover, .pkg-card.featured .pkg-btn {
+  background: var(--gold);
+  color: var(--black);
+}
+
+/* ── CONTACT ── */
+.contact-wrap {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+}
+
+.contact-info p {
+  font-size: 0.88rem;
+  line-height: 1.9;
+  color: var(--ash);
+  margin-bottom: 32px;
+}
+
+.contact-details {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.contact-item-icon {
+  width: 36px; height: 36px;
+  border: 1px solid var(--iron);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.9rem;
+  color: var(--gold);
+  flex-shrink: 0;
+}
+
+.contact-item-text {
+  font-size: 0.8rem;
+  color: var(--ash);
+}
+
+.contact-item-label {
+  font-size: 0.58rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--silver);
+  margin-bottom: 2px;
+}
+
+/* Contact form */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-label {
+  font-size: 0.6rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--silver);
+}
+
+.form-input, .form-select, .form-textarea {
+  background: var(--graphite);
+  border: 1px solid var(--iron);
+  color: var(--cream);
+  padding: 14px 16px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 300;
+  outline: none;
+  transition: border-color 0.2s;
+  appearance: none;
+}
+
+.form-input::placeholder, .form-textarea::placeholder { color: var(--silver); }
+.form-input:focus, .form-select:focus, .form-textarea:focus { border-color: var(--gold); }
+
+.form-textarea { resize: vertical; min-height: 120px; }
+
+.form-select { cursor: pointer; }
+.form-select option { background: var(--graphite); }
+
+.form-submit {
+  background: transparent;
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  padding: 16px 36px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.25s;
+  align-self: flex-start;
+}
+
+.form-submit:hover { background: var(--gold); color: var(--black); }
+
+/* ── FOOTER ── */
+footer {
+  background: var(--charcoal);
+  border-top: 1px solid var(--iron);
+  padding: 40px 52px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.footer-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem;
+  color: var(--white);
+  letter-spacing: 0.1em;
+}
+
+.footer-logo span { color: var(--gold); }
+
+.footer-copy {
+  font-size: 0.62rem;
+  letter-spacing: 0.15em;
+  color: var(--silver);
+  text-transform: uppercase;
+}
+
+.footer-socials {
+  display: flex; gap: 20px;
+}
+
+.footer-socials a {
+  font-size: 0.62rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--silver);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footer-socials a:hover { color: var(--gold); }
+
+/* ── SCROLL REVEAL ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  nav { padding: 20px 24px; }
+  .nav-links { display: none; }
+  section { padding: 70px 24px; }
+  .services-inner, .testimonials-inner, .packages-inner { padding: 0 24px; }
+  .services-full, .testimonials-full, .packages-full { padding: 70px 0; }
+  .about-wrap, .contact-wrap { grid-template-columns: 1fr; gap: 48px; }
+  .services-grid, .packages-grid { grid-template-columns: 1fr; }
+  .testimonials-track { grid-template-columns: 1fr; }
+  .process-track { grid-template-columns: repeat(2, 1fr); gap: 36px; }
+  .process-track::before { display: none; }
+  .pf-item:nth-child(1) { grid-column: span 12; }
+  .pf-item:nth-child(2), .pf-item:nth-child(3) { grid-column: span 6; }
+  .pf-item:nth-child(4), .pf-item:nth-child(5), .pf-item:nth-child(6) { grid-column: span 4; }
+  footer { flex-direction: column; gap: 20px; text-align: center; }
+  .form-row { grid-template-columns: 1fr; }
+  
+  .pf-thumb {
+  position: relative;
+  width: 100%;
+  height: 400px; /* or whatever height you want */
+  overflow: hidden;
+}
+
+.pf-center-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+</style>
+</head>
+<body>
+
+<div class="cursor-dot" id="cursorDot"></div>
+
+<!-- ── NAVIGATION ── -->
+<nav>
+  <div class="nav-logo">ODO <span>MEDIA</span></div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#work">Work</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#packages">Packages</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">Book a Session</a>
+</nav>
+
+<!-- ── HERO ── -->
+<div class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Photography & Videography</div>
+    <h1 class="hero-name">Odo <em>Studio</em></h1>
+    <p class="hero-title">Multidisciplinary Creative House</p>
+    <div class="hero-divider"></div>
+    <div class="hero-scroll">Mpumalanga · Gauteng · Worldwide</div>
+  </div>
+</div>
+
+<!-- ── ABOUT ── -->
+<section id="about">
+  <div class="about-wrap reveal">
+    <div class="about-portrait">
+      <div class="portrait-frame">
+        <div class="portrait-silhouette"></div>
+        <div class="portrait-corner tl"></div>
+        <div class="portrait-corner tr"></div>
+        <div class="portrait-corner bl"></div>
+        <div class="portrait-corner br"></div>
+        <div class="portrait-label">Odo Group — Media House</div>
+      </div>
+    </div>
+    <div class="about-text-block">
+      <div class="section-label">About</div>
+      <h2 class="section-title">Stories told through<br><em>light & motion</em></h2>
+      <p>We are a Mpumalanga-based visual storytelling studio with almost a decade of 
+	  experience crafting cinematic imagery for couples, brands, and creative visionaries. 
+	  Our work lives at the intersection of documentary truth and deliberate artistry -every 
+	  frame considered, every moment earned.</p>
+      <p>Whether shooting a destination wedding on the Coast or a brand campaign in the 
+	  Karoo, we bring the same obsessive attention to light, emotion, and atmosphere. 
+	  You won't get cookie-cutter. You'll get yours.</p>
+      <div class="about-stats">
+        <div>
+          <div class="stat-num">48+</div>
+          <div class="stat-label">Events Covered</div>
+        </div>
+        <div>
+          <div class="stat-num">7</div>
+          <div class="stat-label">Years Active</div>
+        </div>
+        <div>
+          <div class="stat-num">5</div>
+          <div class="stat-label">Provinces Shot</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── SERVICES ── -->
+<div class="services-full" id="services">
+  <div class="services-inner">
+    <div class="section-label reveal">Services</div>
+    <h2 class="section-title reveal">What We offer</h2>
+    <div class="services-grid reveal">
+
+      <div class="service-card">
+        <div class="service-number">01</div>
+        <div class="service-icon">💍</div>
+        <div class="service-name">Wedding Photography</div>
+        <p class="service-desc">Full-day documentary coverage with editorial-style portraits. Every image reflects the unique texture of your love story — not a formula.</p>
+        <div class="service-price">From R 8,500</div>
+        <ul class="service-features">
+          <li>4 hours coverage</li>
+          <li>100+ edited high-res images</li>
+          <li>Private online gallery</li>
+          <li>Print release included</li>
+        </ul>
+      </div>
+
+      <div class="service-card">
+        <div class="service-number">02</div>
+        <div class="service-icon">🎬</div>
+        <div class="service-name">Wedding Videography</div>
+        <p class="service-desc">Cinematic wedding films that feel like a short film — not a highlight reel. Shot on cinema-grade lenses with a dedicated audio crew.</p>
+        <div class="service-price">From R 12,000</div>
+        <ul class="service-features">
+          <li>Highlight film (2–4 min)</li>
+          <li>Full ceremony film</li>
+          <li>RAW audio capture</li>
+          <li>Drone aerials where permitted</li>
+        </ul>
+      </div>
+
+      <div class="service-card">
+        <div class="service-number">03</div>
+        <div class="service-icon">✦</div>
+        <div class="service-name">Brand & Commercial</div>
+        <p class="service-desc">Photo and video production for brands that want to stop the scroll. Product, lifestyle, and campaign work with full creative direction available.</p>
+        <div class="service-price">From R 5,500/day</div>
+        <ul class="service-features">
+          <li>Half-day & full-day rates</li>
+          <li>Creative direction included</li>
+          <li>Styled shoots</li>
+          <li>Licensing negotiable</li>
+        </ul>
+      </div>
+
+      <div class="service-card">
+        <div class="service-number">04</div>
+        <div class="service-icon">👤</div>
+        <div class="service-name">Portraits & Headshots</div>
+        <p class="service-desc">Executive headshots, personal branding sessions, and editorial portraits. Relaxed, directed, always flattering.</p>
+        <div class="service-price">From R 1,500</div>
+        <ul class="service-features">
+          <li>1-hour studio or location session</li>
+          <li>30 edited selects</li>
+          <li>Same-week delivery</li>
+        </ul>
+      </div>
+
+      <div class="service-card">
+        <div class="service-number">05</div>
+        <div class="service-icon">🌿</div>
+        <div class="service-name">Engagement Sessions</div>
+        <p class="service-desc">Pre-wedding shoots that double as rehearsal — for you to get comfortable in front of my lens before the big day.</p>
+        <div class="service-price">From R 2,000</div>
+        <ul class="service-features">
+          <li>1–2 hour golden-hour session</li>
+          <li>70+ edited images</li>
+          <li>Location scouting included</li>
+        </ul>
+      </div>
+
+      <div class="service-card">
+        <div class="service-number">06</div>
+        <div class="service-icon">📸</div>
+        <div class="service-name">Events & Corporate</div>
+        <p class="service-desc">Conferences, product launches, galas, and parties. Fast turnaround, professional presence, no fuss.</p>
+        <div class="service-price">From R 3,600</div>
+        <ul class="service-features">
+          <li>from 3 hours</li>
+          <li>24-hr turnaround available</li>
+          <li>Full-res delivery</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ── PORTFOLIO ── -->
+<section id="work">
+  <div class="portfolio-header reveal">
+    <div>
+      <div class="section-label">Portfolio</div>
+      <h2 class="section-title">Selected <em>work</em></h2>
+    </div>
+    <div class="portfolio-filters">
+      <button class="filter-btn active" onclick="setFilter(this)">All</button>
+      <button class="filter-btn" onclick="setFilter(this)">Weddings</button>
+      <button class="filter-btn" onclick="setFilter(this)">Brand</button>
+      <button class="filter-btn" onclick="setFilter(this)">Film</button>
+    </div>
+  </div>
+
+  <div class="portfolio-grid reveal">
+    <div class="pf-item">
+      <div class="pf-thumb">
+        <div class="pf-bg"></div>
+        
+        <div class="pf-overlay">
+          <div>
+            <div class="pf-caption-title">Lungelo & Noluthando M.</div>
+            <div class="pf-caption-cat">Wedding · Mpumalanga</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pf-item">
+      <div class="pf-thumb">
+        <div class="pf-bg"></div>
+        <div class="pf-center-icon">🏙️</div>
+        <div class="pf-overlay">
+          <div>
+            <div class="pf-caption-title">Rare Designs Brand Shoot</div>
+            <div class="pf-caption-cat">Brand · Commercial</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pf-item">
+      <div class="pf-thumb">
+        <div class="pf-bg"></div>
+        <div class="pf-center-icon">🌿</div>
+        <div class="pf-overlay">
+          <div>
+            <div class="pf-caption-title">Keitumetsi & Vuyani M's Wedding</div>
+            <div class="pf-caption-cat">Portraits · Riverside</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pf-item">
+      <div class="pf-thumb">
+        <div class="pf-bg"></div>
+        <div class="pf-center-icon">🎬</div>
+        <div class="pf-overlay">
+          <div>
+            <div class="pf-caption-title">Sunset Sundays — Reel</div>
+            <div class="pf-caption-cat">Film · Event Aftermovie</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pf-item">
+      <div class="pf-thumb">
+        <div class="pf-bg"></div>
+        <div class="pf-center-icon">✦</div>
+        <div class="pf-overlay">
+          <div>
+            <div class="pf-caption-title">Nkosi & Amara</div>
+            <div class="pf-caption-cat">Wedding · Joburg</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pf-item">
+      <div class="pf-thumb">
+        <div class="pf-bg"></div>
+        <div class="pf-center-icon">🍾</div>
+        <div class="pf-overlay">
+          <div>
+            <div class="pf-caption-title">La Vue Launch</div>
+            <div class="pf-caption-cat">Events · Brand</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── PROCESS ── -->
+<section>
+  <div class="section-label reveal">Process</div>
+  <h2 class="section-title reveal">How we work <em>together</em></h2>
+  <div class="process-track reveal">
+    <div class="process-step">
+      <div class="process-dot">01</div>
+      <div class="process-name">Discovery Call</div>
+      <p class="process-desc">A relaxed 30-min conversation to understand your vision, timeline, and aesthetic.</p>
+    </div>
+    <div class="process-step">
+      <div class="process-dot">02</div>
+      <div class="process-name">Custom Proposal</div>
+      <p class="process-desc">A tailored package and creative brief built around your specific needs.</p>
+    </div>
+    <div class="process-step">
+      <div class="process-dot">03</div>
+      <div class="process-name">The Shoot</div>
+      <p class="process-desc">On the day, you forget about the camera. I handle everything else.</p>
+    </div>
+    <div class="process-step">
+      <div class="process-dot">04</div>
+      <div class="process-name">Delivery</div>
+      <p class="process-desc">Beautifully edited images or film delivered to your private gallery within 4–6 weeks.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── PACKAGES ── -->
+<div class="packages-full" id="packages">
+  <div class="packages-inner">
+    <div class="section-label reveal">Packages</div>
+    <h2 class="section-title reveal">Investment tiers</h2>
+    <div class="packages-grid reveal">
+
+      <div class="pkg-card">
+        <div class="pkg-tier">Essential</div>
+        <div class="pkg-name">The Classic</div>
+        <div class="pkg-price">R 14,500 <span>/ event</span></div>
+        <div class="pkg-divider"></div>
+        <ul class="pkg-features">
+          <li>8 hours photography coverage</li>
+          <li>2 photographers</li>
+          <li>350+ edited images</li>
+          <li>Private online gallery</li>
+          <li>Print release</li>
+          <li>4-week delivery</li>
+        </ul>
+        <button class="pkg-btn">Enquire Now</button>
+      </div>
+
+      <div class="pkg-card featured">
+        <div class="pkg-badge">Most Popular</div>
+        <div class="pkg-tier">Signature</div>
+        <div class="pkg-name">Photo + Film</div>
+        <div class="pkg-price">R 26,000 <span>/ event</span></div>
+        <div class="pkg-divider"></div>
+        <ul class="pkg-features">
+          <li>10 hours photo + video coverage</li>
+          <li>2 photographer + 1 videographer</li>
+          <li>500+ edited images</li>
+          <li>Cinematic highlight film (5 min)</li>
+          <li>Full ceremony film</li>
+          <li>Drone aerials</li>
+          <li>Engagement session included</li>
+        </ul>
+        <button class="pkg-btn">Enquire Now</button>
+      </div>
+
+      <div class="pkg-card">
+        <div class="pkg-tier">Prestige</div>
+        <div class="pkg-name">Full Production</div>
+        <div class="pkg-price">R 38,000 <span>/ event</span></div>
+        <div class="pkg-divider"></div>
+        <ul class="pkg-features">
+          <li>Unlimited hours, full day</li>
+          <li>2 photographers + 2 videographers</li>
+          <li>600+ edited images</li>
+          <li>Feature-length film (20+ min)</li>
+          <li>Drone + gimbal coverage</li>
+          <li>Next-day highlight reel</li>
+          <li>Fine art album included</li>
+          <li>Destination travel considered</li>
+        </ul>
+        <button class="pkg-btn">Enquire Now</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ── TESTIMONIALS ── -->
+<div class="testimonials-full">
+  <div class="testimonials-inner">
+    <div class="section-label reveal">Testimonials</div>
+    <h2 class="section-title reveal">What clients <em>say</em></h2>
+    <div class="testimonials-track reveal">
+
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">Odo Studio didn't just photograph our wedding, they felt it. 
+		Every image captures something we didn't even know was happening. Looking at them still makes me cry.</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">L</div>
+          <div>
+            <div class="author-name">Lungelo & Noluthando M.</div>
+            <div class="author-event">Wedding · Mpumalanga</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">Working with Odo Group on our rebrand campaign was seamless. 
+		The creative director interpreted our brief better than we could have articulated it. The results were extraordinary.</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">N</div>
+          <div>
+            <div class="author-name">Nqobile Nxumalo</div>
+            <div class="author-event">Managing Director 
+· Nxumalo Green Attorneys</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+			<p class="testimonial-text">Thank you immensely for the all the images
+			you've selected. The work is nothing short of amazing! </p>
+        <div class="testimonial-author">
+          <div class="author-avatar">S</div>
+          <div>
+            <div class="author-name">Simphiwe "Asjay".</div>
+            <div class="author-event">Fashion Photoshoot · Secunda</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+			<p class="testimonial-text">As someone who hates being "pictures", Odo made the engagement shoot feel like a walk in the park. 
+			<br>The images look like a magazine spread.  <br><br><br></p>
+        <div class="testimonial-author">
+          <div class="author-avatar">M</div>
+          <div>
+            <div class="author-name">Marcus "Marcus MC" Shabalala.</div>
+            <div class="author-event">Portraits · Gauteng</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ── CONTACT ── -->
+<section id="contact">
+  <div class="section-label reveal">Contact</div>
+  <h2 class="section-title reveal">Let's create <em>something</em></h2>
+  <div class="contact-wrap reveal">
+
+    <div class="contact-info">
+      <p>Every great image starts with a conversation. 
+	  Tell us about your vision. Whether it's the wedding you've been 
+	  planning for years or the brand film that needs to exist. We'd love to hear from you.</p>
+      <div class="contact-details">
+        <div class="contact-item">
+          <div class="contact-item-icon">✉</div>
+          <div>
+            <div class="contact-item-label">Email</div>
+            <div class="contact-item-text">hello@odocorp.co.za</div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item-icon">📱</div>
+          <div>
+            <div class="contact-item-label">WhatsApp</div>
+            <div class="contact-item-text">+27 82 870 7275</div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item-icon">📍</div>
+          <div>
+            <div class="contact-item-label">Base</div>
+            <div class="contact-item-text">Mpumalanga, South Africa · Available worldwide</div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item-icon">📅</div>
+          <div>
+            <div class="contact-item-label">Availability</div>
+            <div class="contact-item-text">Limited dates remaining for 2026</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="contact-form">
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">First Name</label>
+          <input type="text" class="form-input" placeholder="Your name"/>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Last Name</label>
+          <input type="text" class="form-input" placeholder="Your surname"/>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Email Address</label>
+        <input type="email" class="form-input" placeholder="you@example.com"/>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">Service</label>
+          <select class="form-select">
+            <option value="">Select a service</option>
+            <option>Wedding Photography</option>
+            <option>Wedding Videography</option>
+            <option>Photo + Film Package</option>
+            <option>Brand & Commercial</option>
+            <option>Portraits & Headshots</option>
+            <option>Events & Corporate</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Event Date</label>
+          <input type="text" class="form-input" placeholder="DD / MM / YYYY"/>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Tell me about your vision</label>
+        <textarea class="form-textarea" placeholder="Location, vibe, any details that matter to you..."></textarea>
+      </div>
+      <button class="form-submit">Send Enquiry →</button>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-logo">ODO <span>STUDIO</span></div>
+  <div class="footer-copy">© 2025 Odo Group Pty Ltd. All rights reserved.</div>
+  <div class="footer-socials">
+    <a href="#">Instagram</a>
+    <a href="#">Pinterest</a>
+    <a href="#">Vimeo</a>
+  </div>
+</footer>
+
+<script>
+  // Cursor dot
+  const dot = document.getElementById('cursorDot');
+  document.addEventListener('mousemove', e => {
+    dot.style.left = e.clientX + 'px';
+    dot.style.top  = e.clientY + 'px';
+  });
+
+  // Scroll reveal
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // Portfolio filter (visual only)
+  function setFilter(btn) {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+  }
+</script>
+
+</body>
+</html>

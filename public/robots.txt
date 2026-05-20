@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://odostudio.co.za/sitemap.xml
